@@ -1,13 +1,21 @@
 # Laravel Admin Starter
+Basic package with Laravel 5.2 + Admin-LTE
 
-Components:
-- Laravel 5.2
+# Components
+- Laravel 5.2 + (Basic Auth + Minor name / image tweaking)
 - Admin-LTE theme
  
 
 # Installation
 
-Just Run Composer update
+1. Clone the project into a folder of your choice
+   "git clone https://github.com/thunder87/Laravel-Admin-Starter.git ."
+2. Through composer run "Composer install"
+3. Edit the .env.example file with your database information and save it as .env
+4. Run "php artisan migrate"
+5. Run "php artisan key:generate"
+
+Enjoy
 
 ## Official Documentation
 
