@@ -1,7 +1,5 @@
 # Laravel Admin Starter
 
-Project info
-
 Components:
 - Laravel 5.2
 - Admin-LTE theme
