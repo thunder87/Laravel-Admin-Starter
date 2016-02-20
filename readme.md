@@ -8,9 +8,11 @@ Components:
 # Installation
 
 1. Clone the project into a folder of your choice
-2. Edit the .env.example file with your server information and save it as .env
-3. Through composer run "Composer update"
+   git clone https://github.com/thunder87/Laravel-Admin-Starter.git {{ Folder name here }}
+2. Through composer run "Composer install"
+3. Edit the .env.example file with your database information and save it as .env
 4. Run "php artisan migrate"
+5. Run "php artisan key:generate"
 
 Enjoy
 
