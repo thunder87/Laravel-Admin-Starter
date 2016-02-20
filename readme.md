@@ -7,7 +7,12 @@ Components:
 
 # Installation
 
-Just Run Composer update
+1. Clone the project into a folder of your choice
+2. Edit the .env.example file with your server information and save it as .env
+3. Through composer run "Composer update"
+4. Run "php artisan migrate"
+
+Enjoy
 
 ## Official Documentation
 
