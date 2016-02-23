@@ -229,8 +229,8 @@
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu">
                     <li class="header">HEADER</li>
-                    <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="{{ url('dashboard') }}"><i class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
+                    <!-- USE {{ Request::is('route-name*') ? 'active' : '' }} to dynamically set active tab -->
+                    <li class="{{ Request::is('dashboard*') ? 'active' : '' }}"><a href="{{ url('dashboard') }}"><i class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
                     <li><a href="#"><i class='fa fa-link'></i> <span>Another Link</span></a></li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
