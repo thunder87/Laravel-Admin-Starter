@@ -6,18 +6,23 @@
     <title> @yield('htmlheader_title', 'Your title here') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
-    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
     <!-- Ionicons -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
     <!-- Theme style -->
-    <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css"/>
     <!-- AdminLTE Skin (Blue) -->
-    <link href="{{ asset('/css/skins/skin-blue.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/skins/skin-blue.css') }}" rel="stylesheet" type="text/css"/>
     <!-- iCheck -->
-    <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
-
+    <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Toastr -->
+    <link href="{{ asset('/css/toastr.min.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- SweetAlert2 -->
+    <link href="{{ asset('/css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css"/>
+    @yield('header-extra')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,7 +70,8 @@
                                         <a href="#">
                                             <div class="pull-left">
                                                 <!-- User Image -->
-                                                <img src="{{ Auth::user()->image }}" class="img-circle" alt="User Image"/>
+                                                <img src="{{ Auth::user()->image }}" class="img-circle"
+                                                     alt="User Image"/>
                                             </div>
                                             <!-- Message title and timestamp -->
                                             <h4>
@@ -126,7 +132,9 @@
                                             <!-- The progress bar -->
                                             <div class="progress xs">
                                                 <!-- Change the css width attribute to simulate progress -->
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">20% Complete</span>
                                                 </div>
                                             </div>
@@ -142,8 +150,8 @@
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                                <!-- User Account Menu -->
+                @else
+                    <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -155,7 +163,7 @@
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="{{ url(Auth::user()->image) }}" class="img-circle" alt="User Image" />
+                                    <img src="{{ url(Auth::user()->image) }}" class="img-circle" alt="User Image"/>
                                     <p>
                                         {{ Auth::user()->firstname." ".Auth::user()->lastname }}
                                         <small>{{ Auth::user()->created_at->diffForHumans() }}</small>
@@ -176,7 +184,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="{{ url('profile') }}" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
@@ -184,18 +192,18 @@
                                 </li>
                             </ul>
                         </li>
-                        @endif
+                @endif
 
-                                <!-- Control Sidebar Toggle Button -->
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
+                <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-            <!-- Left side column. contains the logo and sidebar -->
+    <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
 
         <!-- sidebar: style can be found in sidebar.less -->
@@ -205,7 +213,7 @@
             @if (! Auth::guest())
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{ Auth::user()->image }}" class="img-circle" alt="User Image" />
+                        <img src="{{ Auth::user()->image }}" class="img-circle" alt="User Image"/>
                     </div>
                     <div class="pull-left info">
                         <p>{{ Auth::user()->firstname." ".Auth::user()->lastname }}</p>
@@ -213,33 +221,40 @@
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
-                @endif
+        @endif
 
-                        <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+        <!-- search form (Optional) -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
               <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i
+                            class="fa fa-search"></i></button>
               </span>
-                    </div>
-                </form>
-                <!-- /.search form -->
+                </div>
+            </form>
+            <!-- /.search form -->
 
-                <!-- Sidebar Menu -->
-                <ul class="sidebar-menu">
-                    <li class="header">HEADER</li>
-                    <!-- USE {{ Request::is('route-name*') ? 'active' : '' }} to dynamically set active tab -->
-                    <li class="{{ Request::is('dashboard*') ? 'active' : '' }}"><a href="{{ url('dashboard') }}"><i class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
-                    <li><a href="#"><i class='fa fa-link'></i> <span>Another Link</span></a></li>
-                    <li class="treeview">
-                        <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Link in level 2</a></li>
-                            <li><a href="#">Link in level 2</a></li>
-                        </ul>
-                    </li>
-                </ul><!-- /.sidebar-menu -->
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">HEADER</li>
+            <!-- USE {{ Request::is('route-name*') ? 'active' : '' }} to dynamically set active tab -->
+                <li class="{{ Request::is('dashboard*') ? 'active' : '' }}"><a href="{{ url('dashboard') }}"><i
+                                class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
+                <li class="{{ Request::is('profile*') ? 'active' : '' }}"><a href="{{ url('profile') }}"><i
+                                class='fa fa-user'></i> <span>My Profile</span></a></li>
+                <li class="{{ Request::is('admin*') ? 'active' : '' }}"><a href="{{ url('admin') }}"><i
+                                class='fa fa-cogs'></i> <span>Admin Panel</span></a></li>
+                <li><a href="#"><i class='fa fa-link'></i> <span>Another Link</span></a></li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i
+                                class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Link in level 2</a></li>
+                        <li><a href="#">Link in level 2</a></li>
+                    </ul>
+                </li>
+            </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
     </aside>
@@ -311,7 +326,7 @@
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Report panel usage
-                            <input type="checkbox" class="pull-right" checked />
+                            <input type="checkbox" class="pull-right" checked/>
                         </label>
                         <p>
                             Some information about this general settings option
@@ -328,7 +343,7 @@
 
 </div><!-- ./wrapper -->
 
-    @include('layouts.partials.scripts')
+@include('layouts.partials.scripts')
 
 </body>
 </html>

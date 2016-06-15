@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Kamaln7\Toastr\Facades\Toastr;
 use Validator;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -41,6 +44,17 @@ class AuthController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param User $user
+     * @return mixed
+     */
+    public function authenticated(Request $request, User $user)
+    {
+        Toastr::success("Welcome ".$user->firstname." ".$user->lastname."! <br/> You are now logged in");
+        return redirect()->intended($this->redirectPath());
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -70,5 +84,19 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * If you want to modify where the user is redirected
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+//        if (Auth::user()->isAdmin()) {
+//            return '/admin-dashboard';
+//        }
+
+        return '/dashboard';
     }
 }
