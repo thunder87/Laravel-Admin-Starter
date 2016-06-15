@@ -24,8 +24,6 @@ Basic package with Laravel 5.2 + Admin-LTE
 + Email: test@test.dk
 + Password: test123
 
-Enjoy
-
 ## Official Documentation
 
 Documentation for the framework can be found on the [AlmSaeedStudio website](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html).
