@@ -34,4 +34,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/dashboard', 'HomeController@index');
+    Route::resource('profile', 'ProfileController');
+    Route::resource('admin', 'AdminController');
 });
