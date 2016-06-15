@@ -20,7 +20,7 @@ Basic package with Laravel 5.2 + Admin-LTE
 5. Run "php artisan key:generate" to generate a key for your application
 6. Run "php artisan migrate" to populate the or "php artisan migrate --seed" to add a seed user
 
-# Seed user:
+### Seed user:
 + Email: test@test.dk
 + Password: test123
 
