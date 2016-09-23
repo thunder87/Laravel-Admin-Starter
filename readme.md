@@ -1,5 +1,5 @@
 # Laravel Admin Starter
-Basic package with Laravel 5.2 + Admin-LTE
+Basic package with Laravel 5.3 + Admin-LTE
 
 # Components
 + Laravel 5.3
