@@ -22,8 +22,8 @@
     <link href="{{ asset('/css/toastr.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- SweetAlert2 -->
     <link href="{{ asset('/css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css"/>
-    @yield('header-extra')
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+@yield('header-extra')
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -187,7 +187,14 @@
                                         <a href="{{ url('profile') }}" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
+                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout</a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </div>
                                 </li>
                             </ul>
@@ -227,7 +234,7 @@
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search..."/>
-              <span class="input-group-btn">
+                    <span class="input-group-btn">
                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i
                             class="fa fa-search"></i></button>
               </span>
@@ -245,15 +252,10 @@
                                 class='fa fa-user'></i> <span>My Profile</span></a></li>
                 <li class="{{ Request::is('admin*') ? 'active' : '' }}"><a href="{{ url('admin') }}"><i
                                 class='fa fa-cogs'></i> <span>Admin Panel</span></a></li>
-                <li><a href="#"><i class='fa fa-link'></i> <span>Another Link</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i
-                                class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                    </ul>
-                </li>
+                <li class="header">LINKS</li>
+                <li><a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html"><i class='fa fa-link'></i> <span>Admin LTE</span></a></li>
+                <li><a href="https://github.com/oriceon/toastr-5-laravel"><i class='fa fa-link'></i> <span>Toastr Docs</span></a></li>
+                <li><a href="https://limonte.github.io/sweetalert2/"><i class='fa fa-link'></i> <span>SweetAlert2</span></a></li>
             </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

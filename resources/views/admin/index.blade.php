@@ -59,7 +59,7 @@
 @endsection
 @section('scripts-extra')
 <script>
-    $('.btn').on('click', function() {
+    $('.btn-danger').on('click', function() {
         swal(
                 'Good job!',
                 'You clicked the button!',
