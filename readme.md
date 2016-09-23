@@ -1,27 +1,35 @@
-# Laravel PHP Framework
+# Laravel Admin Starter
+Basic package with Laravel 5.2 + Admin-LTE
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+# Components
++ Laravel 5.3
+    - Login/Logout/Register/Forgot Password
+    - User Edit Profile Page
+    - Admin panel with Registered Users overview
++ Admin-LTE theme
++ Toastr Messaging system
++ SweetAlert2
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+# Installation
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+1. Clone the project into a folder of your choice with
+   "git clone https://github.com/thunder87/Laravel-Admin-Starter.git ."
+2. Through composer run "composer install"
+3. (To get the latest packages, run composer update)
+4. Edit the .env.example file with your database information and save it as .env
+5. Run "php artisan key:generate" to generate a key for your application
+6. Run "php artisan migrate" to populate the or "php artisan migrate --seed" to add a seed user
+
+### Seed user:
++ Email: test@test.com
++ Password: test123
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Documentation for the framework can be found on the [AlmSaeedStudio website](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html).
+Toastr documentation can be found [Here](https://github.com/oriceon/toastr-5-laravel)
+SweetAlert documentation can be found [Here](https://limonte.github.io/sweetalert2/)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Laravel Admin Starter is licensed under the [MIT license](http://opensource.org/licenses/MIT)
