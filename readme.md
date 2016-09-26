@@ -1,6 +1,9 @@
 # Laravel Admin Starter
 Basic package with Laravel 5.3 + Admin-LTE
 
+# NOTE
+Package has been updated to Laravel 5.3 - users on Laravel 5.2 - please refer to the "Laravel-5.2" branch
+
 # Components
 + Laravel 5.3
     - Login/Logout/Register/Forgot Password
