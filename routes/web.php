@@ -29,6 +29,7 @@ Route::auth();
 
 Route::get('/dashboard', 'HomeController@index');
 Route::resource('profile', 'ProfileController');
+Route::patch('profile/{profile}/password', 'ProfileController@update_password');
 Route::resource('admin', 'AdminController');
 
 Auth::routes();

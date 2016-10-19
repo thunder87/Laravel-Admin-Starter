@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Kamaln7\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -18,23 +19,34 @@ class ProfileController extends Controller
         return view('profile.index')->with('profile', Auth::user());
     }
 
-    public function update(Request $request)
+    public function edit(User $profile)
     {
-        if ($request->email == Auth::user()->email) {
-            $this->validate($request, [
-                "firstname" => "required",
-                "lastname" => "required",
-                "image" => "required"
-            ]);
-        } else {
-            $this->validate($request, [
-                "firstname" => "required",
-                "lastname" => "required",
-                "email" => "required|unique:users",
-                "image" => "required"
-            ]);
-        }
-        Auth::user()->update($request->all());
+        return view('profile.index', compact('profile'));
+    }
+
+    public function update(User $profile, Request $request)
+    {
+        $this->validate($request, [
+            "firstname" => "required",
+            "lastname" => "required",
+            "image" => "required"
+        ]);
+
+        $profile->update($request->all());
+        Toastr::info("Profile has been successfully updated");
+        return back();
+    }
+
+    public function update_password(User $profile, Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required|min:6|confirmed'
+        ]);
+
+        $profile->update([
+            'password' => bcrypt($request->password)
+        ]);
+
         Toastr::info("Profile has been successfully updated");
         return back();
     }
