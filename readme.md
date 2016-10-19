@@ -21,7 +21,7 @@ Basic package with Laravel 5.2 + Admin-LTE
 6. Run "php artisan migrate" to populate the or "php artisan migrate --seed" to add a seed user
 
 ### Seed user:
-+ Email: test@test.dk
++ Email: test@test.com
 + Password: test123
 
 ## Official Documentation
