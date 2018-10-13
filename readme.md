@@ -2,7 +2,8 @@
 Basic package with Laravel 5.3 + Admin-LTE
 
 # NOTE
-Package has been updated to Laravel 5.3 - users on Laravel 5.2 - please refer to the "Laravel-5.2" branch
+This project is inactive, a lot has changed since 5.3 - but the project should still prove useful for learning purpose
+but it should not be used in production.
 
 # Components
 + Laravel 5.3
